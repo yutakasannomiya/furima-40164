@@ -82,7 +82,7 @@ Things you may want to cover:
 | pref             | integer    | null: false, ActiveHash |
 | city             | string     | null: false             |
 | address          | string     | null: false             |
-| building         | string     | null: false             |
+| building         | string     |                         |
 | tel              | integer    | null: false             |
 
 ### Association
