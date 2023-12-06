@@ -49,11 +49,11 @@ Things you may want to cover:
 | ---------------- | ------------ | ------------------------------ |
 | item_name        | string       | null: false                    |
 | item_text        | text         | null: false                    |
-| category_id      | integer      | null: false, ActiveHash        |
-| condition_id     | integer      | null: false, ActiveHash        |
-| shipping_id      | integer      | null: false, ActiveHash        |
-| pref_id          | integer      | null: false, ActiveHash        |
-| days_id          | integer      | null: false, ActiveHash        |
+| category_id      | integer      | null: false                    | ActiveHash
+| condition_id     | integer      | null: false                    | ActiveHash
+| shipping_id      | integer      | null: false                    | ActiveHash
+| pref_id          | integer      | null: false                    | ActiveHash
+| scheduled_day    | integer      | null: false                    | ActiveHash
 | item_price       | integer      | null: false                    |
 | user             | references   | null: false, foreign_key: true |
 
@@ -76,15 +76,15 @@ Things you may want to cover:
 
 ## buys テーブル
 
-| Column           | Type       | Options                 |
-| ---------------- | ---------- | ----------------------- |
-| post_code        | string     | null: false             |
-| pref_id          | integer    | null: false, ActiveHash |
-| city             | string     | null: false             |
-| address          | string     | null: false             |
-| building         | string     |                         |
-| tel              | string     | null: false             |
-| item_users       | references | foreign_key: true       |
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| post_code        | string     | null: false       |
+| pref_id          | integer    | null: false       |  ActiveHash
+| city             | string     | null: false       |
+| address          | string     | null: false       |
+| building         | string     |                   |
+| tel              | string     | null: false       |
+| item_user        | references | foreign_key: true |
 
 ### Association
-- belongs_to :item_users
+- belongs_to :item_user
