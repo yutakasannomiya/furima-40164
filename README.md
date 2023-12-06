@@ -31,7 +31,7 @@ Things you may want to cover:
 | ------------------ | ------ | ------------------------- |
 | nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
-| password           | string | null: false               |
+| encrypted_password | string | null: false               |
 | last_name          | string | null: false               |
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
@@ -45,17 +45,17 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column           | Type       | Options                       |
-| ---------------- | ---------- | ----------------------------- |
-| item_name        | string     | null: false                   |
-| item_text        | text       | null: false                   |
-| item_category    | integer    | null: false, ActiveHash       |
-| item_condition   | integer    | null: false, ActiveHash       |
-| item_shipping    | integer    | null: false, ActiveHash       |
-| item_pref        | integer    | null: false, ActiveHash       |
-| item_days        | integer    | null: false, ActiveHash       |
-| item_price       | integer    | null: false                   |
-| user             | references | null: false, foreign_key: true|
+| Column           | Type         | Options                        |
+| ---------------- | ------------ | ------------------------------ |
+| item_name        | string       | null: false                    |
+| item_text        | text         | null: false                    |
+| category_id      | integer      | null: false, ActiveHash        |
+| condition_id     | integer      | null: false, ActiveHash        |
+| shipping_id      | integer      | null: false, ActiveHash        |
+| pref_id          | integer      | null: false, ActiveHash        |
+| days_id          | integer      | null: false, ActiveHash        |
+| item_price       | integer      | null: false                    |
+| user             | references   | null: false, foreign_key: true |
 
 - belongs_to :user
 - has_many   :item_users
@@ -78,12 +78,13 @@ Things you may want to cover:
 
 | Column           | Type       | Options                 |
 | ---------------- | ---------- | ----------------------- |
-| post_code        | integer    | null: false             |
-| pref             | integer    | null: false, ActiveHash |
+| post_code        | string     | null: false             |
+| pref_id          | integer    | null: false, ActiveHash |
 | city             | string     | null: false             |
 | address          | string     | null: false             |
 | building         | string     |                         |
-| tel              | integer    | null: false             |
+| tel              | string     | null: false             |
+| item_users       | references | foreign_key: true       |
 
 ### Association
 - belongs_to :item_users
