@@ -10,14 +10,14 @@ class User < ApplicationRecord
   end
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'Password Include both letters and numbers' 
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers' 
     
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'Last name First nam Full-width characters' } do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'Full-width characters' } do
     validates :last_name
     validates :first_name
   end
 
-  with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'Last name kana First name kana Full-width katakana characters' } do
+  with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'Full-width katakana characters' } do
     validates :last_name_kana
     validates :first_name_kana
   end
