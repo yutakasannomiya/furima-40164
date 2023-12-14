@@ -23,5 +23,5 @@ class User < ApplicationRecord
   end
 
   has_many :items
-  has_many :item_users
+  has_many :buys
 end
