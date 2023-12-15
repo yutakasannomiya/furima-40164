@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  has_one    :buy
+  has_many   :item_users
 
   belongs_to :category, class_name: 'Category'
   belongs_to :condition, class_name: 'Condition'
