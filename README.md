@@ -58,7 +58,7 @@ Things you may want to cover:
 | user             | references   | null: false, foreign_key: true |
 
 - belongs_to :user
-- has_many   :item_users
+- has_one    :item_user
 
 
 
