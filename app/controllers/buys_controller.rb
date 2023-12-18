@@ -1,5 +1,7 @@
 class BuysController < ApplicationController
   before_action :set_item
+  before_action :authenticate_user!
+  before_action :contributor_confirmation
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
@@ -28,6 +30,10 @@ class BuysController < ApplicationController
 
    def set_item
     @item = Item.find(params[:item_id])
+   end
+
+   def contributor_confirmation
+    redirect_to root_path if current_user.id == @item.user_id || @item.item_user.present?
    end
 
    def pay_item
