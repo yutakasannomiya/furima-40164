@@ -63,6 +63,12 @@ RSpec.describe Fusion, type: :model do
         expect(@fusion.errors.full_messages).to include("Tel is invalid, Half-width number")
       end
 
+      it 'telが9桁以下では保存できないこと' do
+        @fusion.tel = '090'
+        @fusion.valid?
+        expect(@fusion.errors.full_messages).to include("Tel is invalid, Half-width number")
+      end
+
       it 'telが半角数字以外が混じっていると保存できないこと' do
         @fusion.tel = 'aaa12341234'
         @fusion.valid?

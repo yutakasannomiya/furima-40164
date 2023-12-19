@@ -7,7 +7,7 @@ class CreateBuys < ActiveRecord::Migration[7.0]
       t.string      :address,              null: false
       t.string      :building
       t.string      :tel,                  null: false
-      t.references  :item_user,            foreign_key: true
+      t.references  :item_user,            null: false,foreign_key: true
 
       t.timestamps
     end
